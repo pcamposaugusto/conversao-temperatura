@@ -17,7 +17,7 @@ spec:
       - name: web
         image: pcamposaugusto/conversao-temperatura:v1
         ports:
-          - containerPort: 5000
+          - containerPort: 8080
 
 ---
 
@@ -30,7 +30,7 @@ spec:
   selector:
     app: web
   ports:
-  - protocol: TCP
-    port: 8080
+  - port: 80
+    targetPort: 8080
     nodePort: 30000
   type: LoadBalancer
